@@ -7,21 +7,17 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(getName());
         System.out.println(getAge());
-        Scanner in = new Scanner(System.in);
-        System.out.println("Podaj a= ");
-        int a = in.nextInt();
-        System.out.println("Podaj b= ");
-        int b = in.nextInt();
-
-        obliczenia(a, b);
-        zadanie3();
+        //zadanie2();
+        //zadanie3();
         zadanie7();
+        //zadanie5();
+        //zadanie6();
     }
 
 
 
 
-    //metody
+    //zadanie1
     public static String getName() {
         return "Jan";
     }
@@ -30,13 +26,18 @@ public class Main {
         return 23;
     }
 
-    public static void obliczenia(int a, int b) {
+    public static void zadanie2() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Podaj a= ");
+        int a = in.nextInt();
+        System.out.println("Podaj b= ");
+        int b = in.nextInt();
         System.out.println(a + " + " + b + " = " + (a + b));
         System.out.println(a + " - " + b + " = " + (a - b));
         System.out.println(a + " * " + b + " = " + (a * b));
     }
 
-    //zadanie 3
+
     public static void zadanie3() {
         Scanner in = new Scanner(System.in);
         System.out.println("Podaj liczbe: ");
@@ -59,14 +60,48 @@ public class Main {
         }
     }
 
+    public static void zadanie5() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Podaj liczbe: ");
+        int a = in.nextInt();
+        int b = 3;
+        double potega = Math.pow(a,b);
+        System.out.println("Liczba " +a+ " podniesiona do potęgi " +b+ " wynosi = " +potega);
+    }
+    public static void zadanie6() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Podaj liczbe: ");
+        int a = in.nextInt();
+        double pierwiastek = Math.sqrt(a);
+        System.out.println("Pierwiastek z liczby  " +a+ " wynosi = " +pierwiastek);
+    }
+
     public static void zadanie7() {
         Random rand = new Random();
         Scanner in = new Scanner(System.in);
+        System.out.println("Podaj początek przediału a: ");
         int a = in.nextInt();
+        System.out.println("Podaj koniec przedziału b: ");
         int b = in.nextInt();
-        int wylosowana= rand.nextInt(bound:b-a+1)+a;
-        System.out.println(wylosowana);
+        int randomA = rand.nextInt(b-a+1)+a;
+        int randomB = rand.nextInt(b-a+1)+a;
+        int randomC = rand.nextInt(b-a+1)+a;
+
+        sprawdzTrojkat(randomA, randomB , randomC);
+
+    }
+
+    public static boolean sprawdzTrojkat(int a, int b, int c) {
+        int aKwadrat = a * a;
+        int bKwadrat = b * b;
+        int cKwadrat = c * c;
+        if(aKwadrat + bKwadrat == cKwadrat || aKwadrat + cKwadrat == bKwadrat || cKwadrat + bKwadrat == aKwadrat) {
+            System.out.println("Podane boki tworzą trójkąt prostokątny");
+            return true;
+
+        } else {
+            System.out.println("Podane boki nie tworzą trójkąta prostokątnego");
+            return false;
+        }
     }
 }
-
-
