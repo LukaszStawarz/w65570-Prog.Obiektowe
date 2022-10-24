@@ -1,0 +1,168 @@
+import static java.lang.Math.sqrt;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        //zadanie1();
+        //zadanie2();
+        //zadanie3();
+        //zadanie4();
+        zadanie5();
+        //zadanie6();
+    }
+
+    public static void zadanie1() {
+        int a, b, c;
+        Scanner in = new Scanner(System.in);
+        System.out.print("Podaj a= ");
+        a = in.nextInt();
+        System.out.print("Podaj b= ");
+        b = in.nextInt();
+        System.out.print("Podaj c= ");
+        c = in.nextInt();
+
+
+        double delta;
+        delta = b * b - 4 * a * c;
+        if (delta < 0)
+            System.out.println("Brak rozwiązań");
+        else if (delta == 0) {
+            int x;
+            x = -b / (2 * a);
+            System.out.print("Rownanie ma jedno rozwiązanie x = " + x);
+        } else {
+            double x1, x2;
+            x1 = (-b + sqrt(delta)) / (2 * a);
+            x2 = (-b - sqrt(delta)) / (2 * a);
+            System.out.print("Rownanie ma dwa rozwiazania. x1= " + x1 + " i x2= " + x2);
+        }
+    }
+
+    public static void zadanie2() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Podaj x. ");
+        int x = in.nextInt();
+        if (x > 0) System.out.println("wartośc a(x) = " + 2 * x);
+        else if (x == 0) {
+            System.out.println("wartość a(x) = 0 ");
+        } else if (x < 0) {
+            System.out.println("Wartość a(x) = " + (-3 * x));
+        }
+        if (x >= 1) {
+            System.out.println("wartosc b(x) = " + Math.pow(x, 2));
+        } else {
+            System.out.println("wartość b(x) = " + x);
+        }
+        if (x > 2) {
+            System.out.println("Wartość c(x) = " + (2 + x));
+        } else if (x == 2) {
+            System.out.println("Wartość c(x) = " + 8);
+        } else {
+            System.out.println("Wartość c(x) = " + (x - 4));
+        }
+
+    }
+
+    public static void zadanie3() {
+        int[] liczby = new int[3];
+        Scanner in = new Scanner(System.in);
+        System.out.print("Podaj x= ");
+        liczby[0] = in.nextInt();
+        System.out.print("Podaj y= ");
+        liczby[1] = in.nextInt();
+        System.out.print("Podaj z= ");
+        liczby[2] = in.nextInt();
+
+        for (int i = 0; i < liczby.length - 1; i++) {
+            int value = liczby[i];
+            if (liczby[i] > liczby[i + 1]) {
+                liczby[i] = liczby[i + 1];
+                liczby[i + 1] = value;
+            }
+        }
+        System.out.println(liczby[0]);
+        System.out.println(liczby[1]);
+        System.out.println(liczby[2]);
+
+    }
+
+    public static void zadanie4() {
+        String a, b;
+        String tak = "tak";
+        String nie = "nie";
+        Scanner in = new Scanner(System.in);
+        System.out.print("Podaj proszę czy pada deszcz? tak/nie ");
+        a = in.next();
+        System.out.print("Podaj proszę czy jest autobus? tak/nie ");
+        b = in.next();
+
+        if (a.equals(tak) && b.equals(tak)) {
+            System.out.println("Weź parasol. " + "Dostaniesz się na uczelnie.");
+        } else if (a.equals(tak) && b.equals(nie)) {
+            System.out.println("Nie dostaniesz się na uczelnie.");
+        } else if (a.equals(nie) && b.equals(tak)) {
+            System.out.println("Dostaniesz się na uczelnie. " + "Miłego dnia i pięknej pogody");
+        } else {
+            System.out.println("Podałeś złe wartości.");
+        }
+    }
+
+    public static void zadanie5() {
+        String a, b;
+        String tak = "tak";
+        String nie = "nie";
+        Scanner in = new Scanner(System.in);
+        System.out.print("Podaj czy samochód ma zniżki? tak/nie ");
+        a = in.next();
+        System.out.print("Podaj czy otrzymałeś premię? tak/nie ");
+        b = in.next();
+
+//        if (a.equals(nie) || b.equals(tak)) {
+//            System.out.println("Możesaz kupić samochód. " + "Zniżki na samochód nie ma.");
+//        } else if (a.equals(nie) || b.equals(nie)) {
+//            System.out.println("Zakup samochodu trzeba odłożyć na później." + "Zniżki na samochód nie ma.");
+//        } else if (a.equals(tak) || b.equals(tak)) {
+//            System.out.println("Możesz kupić samochód1.");
+//        }
+
+
+        if(b.equals(tak)) {
+            System.out.println("Możesz kupić samochód");
+        } else {
+            System.out.println("Zakup samochodu trzeba odłożyć na później.");
+        }
+        if(a.equals(tak)) {
+            System.out.println();
+        } else {
+            System.out.println("Zniżki na samochód nie ma");
+        }
+        //Zadania nie da rozwiązać się używając operatora ||
+    }
+    public static void zadanie6() {
+        float a, b;
+        String  dodawanie ="dod";
+        String  odejmowanie ="ode";
+        String  mnozenie ="mnoz";
+        String  dzielenie ="dziel";
+        Scanner in = new Scanner(System.in);
+        System.out.print("Podaj liczbe a= ");
+        a = in.nextInt();
+        System.out.print("Podaj liczbe b= ");
+        b = in.nextInt();
+        System.out.println("Wybierz działanie: dodawanie(dod),odejmowanie(ode),mnozenie(mnoz),dzielenie(dziel).");
+        String dzialanie=in.next();
+        if(dodawanie.equals(dzialanie)){
+            System.out.println("Suma: "+a+ "+" +b+ "= "+ (a+b));
+        } else if (odejmowanie.equals(dzialanie)) {
+            System.out.println("Różnica: "+a+ "-" +b+ "= "+ (a-b));
+        } else if (mnozenie.equals(dzialanie)) {
+            System.out.println("Iloczyn: "+a+ "*" +b+ "= "+ (a*b));
+        }else if (dzielenie.equals(dzialanie)){
+            System.out.println("Iloraz: "+a+ ":" +b+ "= "+ (a/b) + " reszta: " + (a%b));
+        }
+    }
+}
