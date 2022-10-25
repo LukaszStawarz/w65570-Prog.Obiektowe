@@ -1,0 +1,55 @@
+public class main {
+    public static void main(String[] args) {
+        Definicja();
+    }
+
+        public static void Definicja() {
+        //double [] data;
+        //data = new double[30];
+
+        double [] data1 = new double[20];
+        String[]slowa;
+        slowa=new String[]{"ala","ma", "kota"};
+
+        int [] intLiczby = {1,2,3123,32,2,3,5,0,-32,32};
+        int [] tab1 = new int[10];
+
+        /*String test="witaj";
+        System.out.println("liczba elementow w tablicy: "+intLiczby.length);
+        System.out.println("liczba elementow w tablicy slowa: "+slowa.length);
+        System.out.println("liczba znakow: "+test.length());
+        System.out.println("liczba znakow w pierwszym slowie z tablicy: "+slowa[0].length());*/
+
+            for(int i=0;i<intLiczby.length;i++){
+                System.out.print(intLiczby[i]+" ");
+            }
+            for(int i: intLiczby){
+                System.out.print(i+ ", ");
+            }
+
+            int [][]tabA = new int [3][4];
+            int [][][]macierz3D = new int [2][4][12];
+
+            int [][]a={
+                    {1,2,3},
+                    {23,3,4,5,2,3,4,2,2},
+                    {3},
+            };
+            System.out.println("elementy tablicy a: ");
+            for (int i=0;i<a.length;i++){
+                for (int j = 0; j < a[i].length; j++) {
+                    System.out.print(a[i][j]+"\t");
+                }
+                System.out.println();
+            }
+
+            //foreach
+            System.out.println("II sposob foreach ");
+            for (int []innerArrayA:a) {
+                for (int data:innerArrayA) {
+                    System.out.print(data+ "\t");
+                }
+                System.out.println();
+            }
+    }
+}
